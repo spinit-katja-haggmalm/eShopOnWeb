@@ -6,6 +6,7 @@
     <RootNamespace>Microsoft.eShopWeb.Web</RootNamespace>
     <UserSecretsId>aspnet-Web2-1FA3F72E-E7E3-4360-9E49-1CCCD7FE85F7</UserSecretsId>
     <LangVersion>latest</LangVersion>
+    <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +32,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" />
     <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" />
+    <PackageReference Include="System.Formats.Asn1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
       <PrivateAssets>all</PrivateAssets>

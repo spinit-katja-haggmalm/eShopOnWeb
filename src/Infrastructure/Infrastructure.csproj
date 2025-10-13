@@ -3,13 +3,19 @@
 	<PropertyGroup>		
 		<RootNamespace>Microsoft.eShopWeb.Infrastructure</RootNamespace>
 		<Nullable>enable</Nullable>
+		<TargetFramework>net9.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Ardalis.Specification.EntityFrameworkCore" />
+		<PackageReference Include="Azure.Identity" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+		<PackageReference Include="Microsoft.Identity.Client" />
+		<PackageReference Include="System.Formats.Asn1" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" />
 	</ItemGroup>
 	<ItemGroup>

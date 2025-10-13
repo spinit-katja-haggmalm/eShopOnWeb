@@ -3,11 +3,13 @@
   <PropertyGroup>  
     <RootNamespace>BlazorShared</RootNamespace>
     <AssemblyName>BlazorShared</AssemblyName>
+    <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="BlazorInputFile" />
     <PackageReference Include="FluentValidation" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
   </ItemGroup>
 
 </Project>
