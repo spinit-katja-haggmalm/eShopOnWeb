@@ -9,7 +9,7 @@ env:
   LOCATION: eastus
   TEMPLATE-FILE: infra/webapp.bicep
   SUBSCRIPTION-ID: a4b42e33-6cbc-45cf-b112-a48a69c49165
-  WEBAPP-NAME: devops-webapp-eastus-15370703
+  WEBAPP-NAME: devops-webapp-eastus-1038015067
 
 jobs:
   #Build, test and publish .net web project in repository
@@ -22,7 +22,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '9.0.x'
         dotnet-quality: 'preview'
     #Build/Test/Publish the .net project
     - name: Build with dotnet
