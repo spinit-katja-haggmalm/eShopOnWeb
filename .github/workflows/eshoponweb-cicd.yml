@@ -5,11 +5,11 @@ on: workflow_dispatch
 
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
-  RESOURCE-GROUP: rg-eshoponweb-eastus
-  LOCATION: eastus
+  RESOURCE-GROUP: rg-eshoponweb-westeurope
+  LOCATION: westeurope
   TEMPLATE-FILE: infra/webapp.bicep
   SUBSCRIPTION-ID: a4b42e33-6cbc-45cf-b112-a48a69c49165
-  WEBAPP-NAME: devops-webapp-eastus-1038015067
+  WEBAPP-NAME: devops-webapp-westeurope-1703929770
 
 jobs:
   #Build, test and publish .net web project in repository
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     #checkout the repository
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     #prepare runner for desired .net version SDK
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -58,14 +58,14 @@ jobs:
     
     #Download the publish files created in previous job
     - name: Download artifact from build job
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: .net-app
         path: .net-app
   
     #Download the bicep templates from previous job
     - name: Download artifact from build job
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: bicep-template
         path: bicep-template

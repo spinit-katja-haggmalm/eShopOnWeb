@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.eShopWeb;
 using Microsoft.eShopWeb.ApplicationCore.Constants;
+using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.ApplicationCore.Services;
 using Microsoft.eShopWeb.Infrastructure.Data;
 using Microsoft.eShopWeb.Infrastructure.Identity;
 using Microsoft.eShopWeb.Infrastructure.Logging;
 using Microsoft.eShopWeb.PublicApi;
+using Microsoft.eShopWeb.PublicApi.CatalogBrandEndpoints;
+using Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints;
+using Microsoft.eShopWeb.PublicApi.CatalogTypeEndpoints;
 using Microsoft.eShopWeb.PublicApi.Middleware;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -82,7 +86,17 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
-builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+//builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(cfg =>
+{
+    cfg.CreateMap<CatalogItem, CatalogItemDto>();
+    cfg.CreateMap<CatalogType, CatalogTypeDto>()
+        .ForMember(dto => dto.Name, options => options.MapFrom(src => src.Type));
+    cfg.CreateMap<CatalogBrand, CatalogBrandDto>()
+        .ForMember(dto => dto.Name, options => options.MapFrom(src => src.Brand));
+    //cfg.CreateMap<Foo, FooDto>();
+    //cfg.CreateMap<Bar, BarDto>();
+}); 
 builder.Configuration.AddEnvironmentVariables();
 
 builder.Services.AddEndpointsApiExplorer();
